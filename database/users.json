@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "first_name": "Nguyễn Văn",
+    "last_name": "Nam",
+    "avatar": "https://ui-avatars.com/api/?name=nguyenvannam&background=8b2c54&color=fff",
+    "email": "nvnam@gmail.com",
+    "password": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwd2QiOiIxMjM0NTY3ODlBYSIsImlhdCI6MTc3NDg4Njc4OCwiZXhwIjoyMDkwMjQ2Nzg4fQ.u7j-K7TEFrU0yLquIuhgVgGk0gt-wu2Y_gCe3aZ35S0",
+    "created_at": "2021-01-01T00:00:00Z"
+  }
+]

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Tracker</title>
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="https://unpkg.com" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="font-['Inter',sans-serif]! flex h-screen bg-white text-gray-800">
+  <aside class="w-64 bg-[#F8FAFC] flex flex-col h-full z-20 border-r border-gray-100">
+    <div class="p-6 flex flex-col gap-1" id="logo">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded shrink-0 flex items-center justify-center">
+          <img src="https://cdn-icons-png.flaticon.com/512/3145/3145765.png" alt="books"
+            class="w-full h-full object-contain" />
+        </div>
+        <div>
+          <h1 class="text-base font-bold text-gray-800 leading-tight">
+            Study Tracker
+          </h1>
+          <p class="text-xs text-gray-500 mt-0.5">Quản lý tiến độ học tập</p>
+        </div>
+      </div>
+    </div>
+    <nav class="flex-1 px-3 py-2 space-y-1.5 overflow-y-auto mt-2" id="nav-bar">
+      <a href="#"
+        class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:bg-gray-200/50 rounded-lg text-sm font-medium transition-all group"
+        id="dashboard-page">
+        <div>
+          <i data-lucide="trending-up" class="w-4 h-4 text-gray-400"></i>
+        </div>
+        Thống kê
+      </a>
+      <a href="#"
+        class="flex items-center gap-3 px-3 py-2 bg-[#E6F0FF] text-blue-600 rounded-lg text-sm font-medium transition-all"
+        id="subject-page">
+        <div class="text-blue-600">
+          <i data-lucide="book" class="w-4 h-4"></i>
+        </div>
+        Quản lý môn học
+      </a>
+      <a href="#"
+        class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:bg-gray-200/50 rounded-lg text-sm font-medium transition-all group"
+        id="lesson-page">
+        <div class="text-gray-400">
+          <i data-lucide="file-text" class="w-4 h-4"></i>
+        </div>
+        Quản lý bài học
+      </a>
+    </nav>
+  </aside>
+  <div class="flex-1 flex flex-col overflow-hidden h-full bg-white">
+    <header class="flex justify-between items-center px-6 py-4 border-b border-gray-100 z-10 w-full">
+      <div>
+        <i data-lucide="layout-grid" class="w-5 h-5 text-gray-500 cursor-pointer"></i>
+      </div>
+      <div class="flex gap-4 items-center">
+        <i data-lucide="bell" class="w-5 h-5 fill-gray-500 text-gray-500 cursor-pointer"></i>
+        <i data-lucide="help-circle" class="w-5 h-5 fill-gray-500 text-white cursor-pointer" stroke-width="2"></i>
+        <i data-lucide="settings" class="w-5 h-5 fill-gray-500 text-gray-500 cursor-pointer"></i>
+        <div class="relative ml-2">
+          <button id="profile-btn"
+            class="w-9 h-9 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 overflow-hidden group hover:opacity-80 transition-opacity flex items-center justify-center">
+            <img src="" alt="Profile" class="w-full h-full object-cover" />
+          </button>
+
+          <div id="profile-dropdown"
+            class="absolute right-0 top-full mt-2 w-[280px] bg-white rounded-lg shadow-2xl hidden z-50 font-['Inter'] p-3 flex flex-col gap-3 border border-[#ddd]">
+            <div class="flex items-center gap-3">
+              <img src="" id="profile-img" alt="Profile" class="w-9 h-9 rounded-full object-cover shadow-sm" />
+              <span class="text-black font-medium text-[15px] tracking-wide" id="profile-name"></span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button id="logout-btn"
+                class="bg-[#EF4444] hover:bg-red-600 text-white flex-1 py-1.5 rounded-md text-[14px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm border border-transparent">
+                Đăng xuất
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="relative flex-1 overflow-x-hidden overflow-y-auto p-8">
+      <div class="max-w-8xl mx-auto flex flex-col min-h-full w-full">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-2xl font-bold text-gray-800" id="page-title">
+            Môn học
+          </h2>
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <select
+                class="appearance-none bg-white border border-gray-300 text-gray-600 py-2 pl-4 pr-10 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm w-48 shadow-sm"
+                id="filter-input"></select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                <i data-lucide="chevron-down" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <button
+              class="bg-[#3B82F6] hover:bg-blue-600 text-white py-2 px-5 rounded-md font-medium text-sm transition-colors shadow-sm"
+              id="add-btn">
+              Thêm mới môn học
+            </button>
+          </div>
+        </div>
+        <div class="mb-4 relative w-full flex justify-end">
+          <div class="relative w-72">
+            <input type="text" placeholder="Tìm kiếm môn học theo tên..." id="search-input"
+              class="w-full pl-4 pr-10 py-2 bg-white border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm text-gray-500 placeholder-gray-400" />
+            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+              <i data-lucide="search" class="w-4 h-4 text-gray-400"></i>
+            </div>
+          </div>
+        </div>
+        <div class="w-full mt-4 flex-1">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-[#F9FAFB] text-sm border-b border-gray-100">
+                <th class="hidden py-3 px-4 text-center" id="check-complete-header"></th>
+                <th class="py-3 px-4 font-semibold text-gray-400 font-medium">
+                  <div class="flex items-center gap-1" id="name-header">
+                    Tên môn học
+                    <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i>
+                  </div>
+                </th>
+                <th class="hidden py-3 px-4 font-semibold text-gray-400 font-medium text-center" id="duration-header">
+                  <div class="flex justify-center items-center gap-1">
+                    Thời gian học
+                    <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i>
+                  </div>
+                </th>
+                <th class="py-3 px-4 font-semibold text-gray-400 text-center font-medium">
+                  Trạng thái
+                </th>
+                <th class="py-3 px-4 font-semibold text-gray-400 text-center font-medium">
+                  Chức năng
+                </th>
+              </tr>
+            </thead>
+            <tbody class="text-sm" id="list-table-body"></tbody>
+          </table>
+        </div>
+        <div class="flex justify-center items-center mt-auto pt-8 pb-4 gap-2 w-full" id="page-container"></div>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="../src/pages/studyTracker.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script type="module">
+    import { sessionStorage } from "./src/core/storage.js";
+    if (sessionStorage.getSession()) {
+      window.location.href = "./pages/mainPage.html";
+    } else {
+      window.location.href = "./pages/loginPage.html";
+    }
+  </script>
+</body>
+
+</html>

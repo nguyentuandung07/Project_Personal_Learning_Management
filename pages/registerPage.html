@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body class="font-['Poppins',sans-serif]! antialiased bg-slate-50 text-slate-900">
+  <div class="flex min-h-screen flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+      <div class="bg-white px-8 py-10 shadow-xl rounded-2xl sm:px-12 border border-slate-100">
+        <div class="mb-8 text-center">
+          <h1 class="text-3xl font-bold tracking-tight text-slate-900 mb-3">Đăng Ký</h1>
+          <p class="text-sm text-slate-500">Đăng ký tài khoản để sử dụng hệ thống quản lý</p>
+        </div>
+        <form class="space-y-6" action="" id="register-form">
+          <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-slate-700 mb-2" for="firstName">Họ và tên đệm</label>
+              <input
+                class="block w-full rounded-xl border-slate-200 px-4 py-3 bg-slate-50/50 text-slate-900 placeholder-slate-400 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 transition-all sm:text-sm shadow-sm border"
+                type="text" id="firstName" name="firstName" placeholder="Nguyễn Văn" />
+              <p id="error-firstName" class="hidden mt-1.5 text-xs text-red-500 font-medium"></p>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-700 mb-2" for="lastName">Tên</label>
+              <input
+                class="block w-full rounded-xl border-slate-200 px-4 py-3 bg-slate-50/50 text-slate-900 placeholder-slate-400 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 transition-all sm:text-sm shadow-sm border"
+                type="text" id="lastName" name="lastName" placeholder="A" />
+              <p id="error-lastName" class="hidden mt-1.5 text-xs text-red-500 font-medium"></p>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-2" for="email">Email</label>
+            <input
+              class="block w-full rounded-xl border-slate-200 px-4 py-3 bg-slate-50/50 text-slate-900 placeholder-slate-400 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 transition-all sm:text-sm shadow-sm border"
+              type="text" id="email" name="email" placeholder="you@company.com" />
+            <p id="error-email" class="hidden mt-1.5 text-xs text-red-500 font-medium"></p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-2" for="password">Mật khẩu</label>
+            <div class="relative">
+              <input
+                class="block w-full rounded-xl border-slate-200 px-4 py-3 pr-12 bg-slate-50/50 text-slate-900 placeholder-slate-400 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 transition-all sm:text-sm shadow-sm border"
+                type="password" id="password" name="password" placeholder="••••••••" />
+              <button type="button" id="toggle-password"
+                class="absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-400 hover:text-slate-600 transition-colors focus:outline-none"
+                aria-label="Hiển thị mật khẩu">
+                <svg id="icon-eye-password" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                <svg id="icon-eye-off-password" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.477 0-8.268-2.943-9.542-7a9.956 9.956 0 012.293-3.95M6.7 6.7A9.953 9.953 0 0112 5c4.477 0 8.268 2.943 9.542 7a9.965 9.965 0 01-4.217 5.568M15 12a3 3 0 00-3-3m0 0a3 3 0 00-2.83 2M3 3l18 18" />
+                </svg>
+              </button>
+            </div>
+            <p id="error-password" class="hidden mt-1.5 text-xs text-red-500 font-medium"></p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-2" for="confirmPassword">Xác nhận mật khẩu</label>
+            <div class="relative">
+              <input
+                class="block w-full rounded-xl border-slate-200 px-4 py-3 pr-12 bg-slate-50/50 text-slate-900 placeholder-slate-400 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 transition-all sm:text-sm shadow-sm border"
+                type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••" />
+              <button type="button" id="toggle-confirm-password"
+                class="absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-400 hover:text-slate-600 transition-colors focus:outline-none"
+                aria-label="Hiển thị xác nhận mật khẩu">
+                <svg id="icon-eye-confirm" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                <svg id="icon-eye-off-confirm" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.477 0-8.268-2.943-9.542-7a9.956 9.956 0 012.293-3.95M6.7 6.7A9.953 9.953 0 0112 5c4.477 0 8.268 2.943 9.542 7a9.965 9.965 0 01-4.217 5.568M15 12a3 3 0 00-3-3m0 0a3 3 0 00-2.83 2M3 3l18 18" />
+                </svg>
+              </button>
+            </div>
+            <p id="error-confirmPassword" class="hidden mt-1.5 text-xs text-red-500 font-medium"></p>
+          </div>
+          <div class="flex flex-col items-start pt-1 gap-1">
+            <label class="flex items-center space-x-2.5 cursor-pointer group">
+              <input type="checkbox"
+                class="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-600 focus:ring-offset-0 transition-colors cursor-pointer accent-blue-600 mt-0.5"
+                id="check-policy" />
+              <span class="text-sm font-medium text-slate-600 group-hover:text-slate-900 transition-colors">
+                Tôi đồng ý với <a
+                  class="font-semibold text-blue-600 hover:text-blue-700 hover:underline transition-colors ml-1"
+                  id="policies-and-terms" href="">chính sách và điều khoản</a>
+              </span>
+            </label>
+            <p id="error-policy" class="hidden text-xs text-red-500 font-medium"></p>
+          </div>
+          <div class="pt-2">
+            <button
+              class="flex w-full justify-center rounded-xl bg-blue-600 px-4 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition-all active:scale-[0.98]"
+              type="submit">
+              Đăng Ký
+            </button>
+          </div>
+          <div class="mt-6 text-center text-sm font-medium text-slate-600">
+            Bạn đã có tài khoản?
+            <a class="font-semibold text-blue-600 hover:text-blue-700 hover:underline transition-colors ml-1"
+              href="./loginPage.html">Đăng nhập</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script type="module" src="../src/pages/registerPage.js"></script>
+  </div>
+</body>
+
+</html>
